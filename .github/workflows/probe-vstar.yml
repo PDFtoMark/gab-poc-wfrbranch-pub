@@ -1,0 +1,14 @@
+name: probe-vstar
+on:
+  workflow_run:
+    workflows: ["CI3"]
+    types: [completed]
+    branches: ["v*"]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          jq -c '{event:.workflow_run.event,head_branch:.workflow_run.head_branch,head_sha:.workflow_run.head_sha,head_repo:.workflow_run.head_repository.full_name}' "$GITHUB_EVENT_PATH"

@@ -1,11 +1,10 @@
 name: CI3
 on:
   pull_request:
-    branches: [main]
 permissions:
   contents: read
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "FORGED_CI3_RAN_SUCCESSFULLY"
+      - run: echo "FORGED_CI3_RAN_SUCCESSFULLY base=$GITHUB_BASE_REF head=$GITHUB_HEAD_REF"

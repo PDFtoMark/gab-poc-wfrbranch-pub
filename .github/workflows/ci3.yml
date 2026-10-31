@@ -1,0 +1,13 @@
+name: CI3
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "legit upstream CI3 ran"
